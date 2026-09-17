@@ -52,15 +52,26 @@ diagnóstico.
 
 ## O que já foi medido
 
-| Condição | Resultado |
-|---|---|
-| Fable 5.1, single shot (padrão-ouro) | 9/12 na régua de 12 itens — as 3 falhas eram convenção posterior ao site, **nenhuma por qualidade** |
-| Haiku 4.5 sozinho, mesmo prompt, sem a skill | **6/12** — e três afirmações do próprio relatório dele contrariadas pela medição |
-| Contrato da fase 0 (sem seções) | 14/16 |
-| Fan-out completo | **em andamento** — ver `evidence/` |
+Mesmo briefing, mesma régua de 17 itens, medido no mesmo dia, com a guarda de identidade ativa:
 
-Os detalhes estão em `evidence/`: a calibração contra o padrão-ouro (que corrigiu quatro bugs de
-instrumento do próprio portão) e o baseline do modelo fraco sozinho.
+| Condição | Portão |
+|---|---|
+| Fable 5.1, single shot (padrão-ouro) | 12/17 |
+| Haiku 4.5 **sozinho**, sem a skill | **8/17** |
+| Haiku 4.5 **× 6 com a skill** | **17/17** |
+
+**A ressalva honesta:** 3 das 5 falhas do padrão-ouro são convenções que a receita inventou
+depois dele (`data-preloader`, `data-section`, `posse.json`), e uma quarta não é medível sem o
+gancho de navegação que o contrato expõe. A régua favorece projeto feito pela receita, então
+**17 > 12 não quer dizer "melhor que o Fable"**. O que é apples-to-apples é o meio contra o
+fim: **o mesmo modelo, no mesmo briefing, saiu de 8 para 17.**
+
+Os detalhes estão em `evidence/`: a calibração contra o padrão-ouro, o baseline do modelo fraco
+sozinho e o run completo — incluindo os três bugs que a rodada encontrou no contrato e os quatro
+que encontrou no próprio portão. O pior deles: o portão media o **site errado** quando a porta
+estava ocupada por outro projeto da máquina, e emitia um relatório convincente e falso. Virou o
+item 0, `identidade do alvo`, que compara a impressão digital do `dist/index.html` com o que
+responde na porta antes de medir qualquer coisa.
 
 ## O achado mais útil
 
