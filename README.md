@@ -26,7 +26,7 @@ quer provar dispensável).
 |---|---|---|
 | **0 — CONTRATO** | orquestrador, sozinho | tokens, tipos, mock, motor de scroll virtual, helper de revelação, cena 3D, registry das seis seções. Só termina quando o projeto **compila e roda vazio** |
 | **1 — FAN-OUT** | 6 executores em paralelo | cada um escreve **um** arquivo de seção, com posse declarada e orçamento de spawn zero |
-| **2 — PORTÃO** | script | 16 itens medidos; reprovação volta ao pane **dono** do arquivo |
+| **2 — PORTÃO** | script | 18 itens medidos; reprovação volta ao pane **dono** do arquivo |
 | **3 — JUÍZO** | orquestrador | olha os 12 screenshots contra a doutrina, devolve no máximo 5 correções |
 
 A anatomia é fixa e abstrata — serve para qualquer assunto, não só para o site que a originou:
@@ -45,7 +45,9 @@ estilo computado, preloader, scroll virtual, erros de console, build e typecheck
 menor quando detecta GL por software), 12 screenshots, requisições externas, movimento reduzido,
 texto de enchimento, **posse de arquivo via git**, cena 3D de fato (pega dependência instalada e
 nunca importada), cor escrita na mão dentro da seção, inversão de seção e **controle coberto por
-overlay**.
+overlay**. E dois itens que existem porque um relatório verde mentiu: **identidade do alvo**
+(item 0) e **seção com conteúdo visível** (item 17) — 12 imagens existirem não prova que o site
+tem conteúdo.
 
 Cada item tem limiar numérico e mensagem acionável. Reprovação sai com o conserto, não com o
 diagnóstico.
@@ -56,9 +58,9 @@ Mesmo briefing, mesma régua de 17 itens, medido no mesmo dia, com a guarda de i
 
 | Condição | Portão |
 |---|---|
-| Fable 5.1, single shot (padrão-ouro) | 12/17 |
-| Haiku 4.5 **sozinho**, sem a skill | **8/17** |
-| Haiku 4.5 **× 6 com a skill** | **17/17** |
+| Fable 5.1, single shot (padrão-ouro) | 12/17 (régua de 17) |
+| Haiku 4.5 **sozinho**, sem a skill | **8/17** (régua de 17) |
+| Haiku 4.5 **× 6 com a skill** | **18/18** |
 
 **A ressalva honesta:** 3 das 5 falhas do padrão-ouro são convenções que a receita inventou
 depois dele (`data-preloader`, `data-section`, `posse.json`), e uma quarta não é medível sem o
@@ -98,6 +100,6 @@ SKILL.md                      a doutrina do pipeline (o que o agente lê)
 DOUTRINA.md                   o acabamento em número — copiado para dentro de cada projeto
 templates/brief-contrato.md   checklist da fase 0 + as convenções de DOM que o portão exige
 templates/brief-secao.md      o brief do executor, portável entre CLIs
-portao/check.mjs              os 16 itens medidos
+portao/check.mjs              os 18 itens medidos
 evidence/                     as medições que sustentam cada limiar
 ```

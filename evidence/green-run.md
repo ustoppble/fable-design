@@ -7,7 +7,13 @@ seis panes escrevendo uma seção cada dentro do contrato da fase 0.
 
 ## Resultado
 
-**17/17 no portão.** 683 linhas de seção escritas pelos seis executores.
+**18/18 no portão.** 683 linhas de seção escritas pelos seis executores.
+
+O primeiro veredito foi 17/17 — e estava errado por um motivo que virou o item 17. O portão
+fotografava com `scrollTo(i)`, que para no **início** da seção, onde o progresso é 0 e a
+revelação ainda não disparou: a seção dos planos saiu **visualmente vazia** e o portão passou,
+porque o item 8 só contava se as 12 imagens existiam. Agora ele avança para o meio da janela
+antes de fotografar e exige conteúdo visível em cada posição.
 
 Na mesma régua, medida no mesmo dia, com a guarda de identidade ativa em cada rodada:
 
@@ -15,7 +21,7 @@ Na mesma régua, medida no mesmo dia, com a guarda de identidade ativa em cada r
 |---|---|
 | Fable 5.1, single shot (padrão-ouro) | 12/17 |
 | Haiku 4.5 sozinho, sem a skill | **8/17** |
-| Haiku 4.5 × 6 com a skill | **17/17** |
+| Haiku 4.5 × 6 com a skill | **18/18** |
 
 **A ressalva honesta:** 3 das 5 falhas do padrão-ouro são convenções que a receita inventou
 depois dele (`data-preloader`, `data-section`, `posse.json`) e uma quarta (inversão de seção) não
@@ -59,3 +65,14 @@ se negocia). **Na segunda onda, os seis executaram.**
    rodada em que mediu um app de voz. Virou o **item 0: identidade do alvo**, uma precondição
    dura que compara a impressão digital do `dist/index.html` com o que responde na porta e aborta
    a medição de navegador quando não bate.
+
+## O que o portão NÃO pega (e por isso a fase 3 existe)
+
+Com 18/18 no mecânico, o olho ainda encontrou duas coisas:
+
+1. **O nó 3D está opaco demais em cima dos preços** na seção 05. A doutrina pede que o objeto
+   passe na frente da tipografia; ali ele compete com a informação que decide a compra.
+2. **A última linha do display da seção 01 corta no rodapé** da janela em 1440×1000.
+
+Nenhuma das duas é medível por limiar sem virar regra boba. É exatamente para isso que a fase 3
+entrega no máximo 5 correções priorizadas depois do portão passar.

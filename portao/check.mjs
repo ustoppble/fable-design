@@ -290,6 +290,7 @@ if (!CHROME) {
     };
     const viewport = (width, height, mobile = false) =>
       send('Emulation.setDeviceMetricsOverride', { width, height, deviceScaleFactor: 1, mobile });
+    const vazias = [];
     const shots = join(DIR, 'evidence', 'portao');
     mkdirSync(shots, { recursive: true });
     const shot = async (name) => {
@@ -381,11 +382,40 @@ if (!CHROME) {
         await viewport(w, h, mob);
         for (let i = 0; i < total; i++) {
           await evaluate(`(window.__fable || window.__overclock).scrollTo(${i})`);
-          await sleep(900);
+          await sleep(300);
+          // O scrollTo para no INÍCIO da seção, onde p=0 e a revelação ainda não disparou:
+          // fotografar ali dava seção visualmente vazia com o portão passando. Avança para o
+          // meio da janela, que é onde um humano de fato vê a seção.
+          await send('Input.dispatchMouseEvent', { type: 'mouseWheel', x: Math.round(w / 2), y: Math.round(h / 2), deltaX: 0, deltaY: Math.round(h * 0.5) });
+          await sleep(1200);
           await shot(`${tag}-${String(i + 1).padStart(2, '0')}.png`);
+
+          // 17. a seção tem conteúdo VISÍVEL nesta posição — 12 imagens existirem não prova nada.
+          const vazio = await evaluate(`(() => {
+            const dentro = [...document.querySelectorAll('[data-section]')].filter(s => {
+              const r = s.getBoundingClientRect();
+              return r.top < innerHeight * 0.6 && r.bottom > innerHeight * 0.4;
+            });
+            if (!dentro.length) return 'nenhuma seção no meio da tela';
+            for (const s of dentro) {
+              const visivel = [...s.querySelectorAll('h1,h2,h3,p,span,button,a,svg,canvas')].some(e => {
+                const r = e.getBoundingClientRect();
+                const st = getComputedStyle(e);
+                return r.width > 8 && r.height > 8 && r.top < innerHeight && r.bottom > 0 &&
+                  Number(st.opacity) > 0.5 && st.visibility !== 'hidden' &&
+                  (e.tagName === 'SVG' || e.tagName === 'CANVAS' || (e.textContent || '').trim().length > 1);
+              });
+              if (visivel) return null;
+            }
+            return dentro.map(s => s.getAttribute('data-section')).join(',');
+          })()`);
+          if (vazio) vazias.push(`${tag} ${String(i + 1).padStart(2, '0')} (${vazio})`);
         }
       }
-      ok(8, 'screenshots por seção', `${total * 2} imagens em evidence/portao/`);
+      ok(8, 'screenshots por seção', `${total * 2} imagens em evidence/portao/, fotografadas no meio da janela`);
+      if (!vazias.length) ok(17, 'seção com conteúdo visível', `${total * 2} posições com texto ou cena visível`);
+      else fail(17, 'seção com conteúdo visível', vazias.slice(0, 5).join(' | '),
+        'Seção sem nada visível no meio da própria janela: a revelação não dispara, o conteúdo está atrás de máscara ou o ativa nunca vira true. 12 imagens existirem não prova que o site tem conteúdo.');
     }
 
     // A doutrina é escrita em números de desktop. O laço de screenshots acima termina em
