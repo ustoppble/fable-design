@@ -26,8 +26,8 @@ Na mesma régua, medida no mesmo dia, com a guarda de identidade ativa em cada r
 **A ressalva honesta:** 3 das 5 falhas do padrão-ouro são convenções que a receita inventou
 depois dele (`data-preloader`, `data-section`, `posse.json`) e uma quarta (inversão de seção) não
 é medível sem o gancho de navegação que o contrato expõe. A régua favorece projeto feito pela
-receita, então **17 > 12 não significa "melhor que o Fable"**. O que é apples-to-apples é a linha
-do meio contra a de baixo: **o mesmo modelo, no mesmo briefing, saiu de 8 para 17.**
+receita, então **18 > 12 não significa "melhor que o Fable"**. O que é apples-to-apples é a linha
+do meio contra a de baixo: **o mesmo modelo, no mesmo briefing, saiu de 8 para 18.**
 
 ## O que aconteceu no caminho
 

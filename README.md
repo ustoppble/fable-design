@@ -65,8 +65,8 @@ Mesmo briefing, mesma régua de 17 itens, medido no mesmo dia, com a guarda de i
 **A ressalva honesta:** 3 das 5 falhas do padrão-ouro são convenções que a receita inventou
 depois dele (`data-preloader`, `data-section`, `posse.json`), e uma quarta não é medível sem o
 gancho de navegação que o contrato expõe. A régua favorece projeto feito pela receita, então
-**17 > 12 não quer dizer "melhor que o Fable"**. O que é apples-to-apples é o meio contra o
-fim: **o mesmo modelo, no mesmo briefing, saiu de 8 para 17.**
+**18 > 12 não quer dizer "melhor que o Fable"**. O que é apples-to-apples é o meio contra o
+fim: **o mesmo modelo, no mesmo briefing, saiu de 8 para 18.**
 
 Os detalhes estão em `evidence/`: a calibração contra o padrão-ouro, o baseline do modelo fraco
 sozinho e o run completo — incluindo os três bugs que a rodada encontrou no contrato e os quatro
