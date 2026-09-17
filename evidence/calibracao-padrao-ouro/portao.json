@@ -1,0 +1,81 @@
+{
+  "medidoEm": "2026-09-17T19:33:15.393Z",
+  "url": "http://127.0.0.1:5199/",
+  "results": [
+    {
+      "n": 1,
+      "item": "paleta contida",
+      "pass": true,
+      "detail": "neutra + 0 colorida(s) visível(is); dominante com 100% da área colorida · 5 famílias declaradas no CSS"
+    },
+    {
+      "n": 2,
+      "item": "razão display/corpo ≥ 12:1",
+      "pass": true,
+      "detail": "200px / 15px = 13.3:1"
+    },
+    {
+      "n": 3,
+      "item": "preloader 0→100",
+      "pass": false,
+      "detail": "nenhum [data-preloader] no DOM",
+      "fix": "O preloader é da fase 0 e precisa do atributo data-preloader no nó raiz para ser cronometrado."
+    },
+    {
+      "n": 4,
+      "item": "scroll virtual",
+      "pass": true,
+      "detail": "body travado e posição interpolada, zero scroll nativo (sem o atributo data-scroll-root)"
+    },
+    {
+      "n": 5,
+      "item": "erros de console",
+      "pass": true,
+      "detail": "nenhum"
+    },
+    {
+      "n": 6,
+      "item": "build e typecheck",
+      "pass": true,
+      "detail": "pulado por --skip-build"
+    },
+    {
+      "n": 7,
+      "item": "fps ≥ 30",
+      "pass": true,
+      "detail": "40fps em 3s (GL por software: piso 30, alvo 60 em hardware real)"
+    },
+    {
+      "n": 8,
+      "item": "screenshots por seção",
+      "pass": false,
+      "detail": "nenhum [data-section] no DOM",
+      "fix": "O registry precisa marcar cada seção com data-section=\"01\"..\"06\"."
+    },
+    {
+      "n": 9,
+      "item": "requisições externas",
+      "pass": true,
+      "detail": "nenhuma"
+    },
+    {
+      "n": 10,
+      "item": "movimento reduzido",
+      "pass": true,
+      "detail": "o texto aparece com prefers-reduced-motion"
+    },
+    {
+      "n": 11,
+      "item": "sem texto de enchimento",
+      "pass": true,
+      "detail": "nada em src/"
+    },
+    {
+      "n": 12,
+      "item": "posse de arquivo",
+      "pass": false,
+      "detail": "não foi possível medir: ENOENT: no such file or directory, open '/Users/laschuk/Developer/youtube/2026-09-03-Fable-5-1-sites/overclock-site-v2/posse.json'",
+      "fix": "A fase 0 tem que rodar git init, commitar o contrato e escrever posse.json. Sem isso a posse não é verificável."
+    }
+  ]
+}
